@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - SmartAd Sales Suite v2.0</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="login-container">
+    <div class="login-card">
+      <div class="login-header">
+        <h1>🚀 SmartAd Sales Suite</h1>
+        <p>Professional Edition v2.0</p>
+      </div>
+      
+      <div id="alert-container"></div>
+      
+      <form id="login-form">
+        <div class="form-group">
+          <label class="form-label" for="email">Email</label>
+          <input 
+            type="email" 
+            id="email" 
+            class="form-control" 
+            placeholder="your@email.com"
+            required
+            style="background: white; color: #1e293b; border: 1px solid #cbd5e1;"
+          >
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label" for="password">Password</label>
+          <input 
+            type="password" 
+            id="password" 
+            class="form-control" 
+            placeholder="Enter your password"
+            required
+            style="background: white; color: #1e293b; border: 1px solid #cbd5e1;"
+          >
+        </div>
+        
+        <button type="submit" class="btn btn-primary btn-block btn-lg">
+          Sign In
+        </button>
+      </form>
+      
+      <p style="margin-top: 1.5rem; text-align: center; color: #64748b; font-size: 0.875rem;">
+        Don't have an account? 
+        <a href="register.html" style="color: #6366f1; text-decoration: none; font-weight: 600;">
+          Sign Up
+        </a>
+      </p>
+    </div>
+  </div>
+  
+  <script>
+    const API_BASE = 'http://localhost:3000/api';
+    
+    // Handle login
+    document.getElementById('login-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+      const alertContainer = document.getElementById('alert-container');
+      
+      try {
+        const response = await fetch(`${API_BASE}/auth/login`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, password })
+        });
+        
+        const data = await response.json();
+        
+        if (response.ok && data.success) {
+          // Store JWT token and user info
+          localStorage.setItem('token', data.token);
+          localStorage.setItem('user', JSON.stringify(data.user));
+          
+          // Redirect to dashboard
+          window.location.href = 'dashboard.html';
+        } else {
+          alertContainer.innerHTML = `
+            <div class="alert alert-error">
+              ${data.error || 'Login failed. Please check your credentials.'}
+            </div>
+          `;
+        }
+      } catch (error) {
+        alertContainer.innerHTML = `
+          <div class="alert alert-error">
+            Connection error. Please make sure the server is running.
+          </div>
+        `;
+      }
+    });
+  </script>
+</body>
+</html>

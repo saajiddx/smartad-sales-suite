@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Leads - SmartAd Sales Suite v2.0</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="dashboard-layout">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="logo">🚀 SmartAd v2.0</div>
+      </div>
+      
+      <nav>
+        <ul class="nav-menu">
+          <li class="nav-item">
+            <a href="dashboard.html" class="nav-link">
+              📊 Dashboard
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="add-sales.html" class="nav-link">
+              💰 Add Sales
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="add-leads.html" class="nav-link active">
+              👥 Add Leads
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="insights.html" class="nav-link">
+              🧠 AI Sales Insights
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="adgen.html" class="nav-link">
+              ✨ AdGen Pro
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="analytics.html" class="nav-link">
+              📈 Analytics
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="settings.html" class="nav-link">
+              ⚙️ Settings
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link" onclick="logout()">
+              🚪 Logout
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+    
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="top-header">
+        <h1 class="page-title">Add New Lead</h1>
+      </div>
+      
+      <div id="alert-container"></div>
+      
+      <div class="card" style="max-width: 600px;">
+        <div class="card-header">
+          <h3 class="card-title">Lead Information</h3>
+        </div>
+        
+        <form id="leads-form">
+          <div class="form-group">
+            <label class="form-label" for="name">Full Name *</label>
+            <input 
+              type="text" 
+              id="name" 
+              class="form-control" 
+              placeholder="e.g., Alice Johnson"
+              required
+            >
+          </div>
+          
+          <div class="form-group">
+            <label class="form-label" for="email">Email Address *</label>
+            <input 
+              type="email" 
+              id="email" 
+              class="form-control" 
+              placeholder="e.g., alice@example.com"
+              required
+            >
+          </div>
+          
+          <div class="form-group">
+            <label class="form-label" for="phone">Phone Number</label>
+            <input 
+              type="tel" 
+              id="phone" 
+              class="form-control" 
+              placeholder="e.g., +1234567890"
+            >
+          </div>
+          
+          <div class="form-group">
+            <label class="form-label" for="source">Lead Source *</label>
+            <select id="source" class="form-select" required>
+              <option value="">Select source...</option>
+              <option value="Website">Website</option>
+              <option value="Referral">Referral</option>
+              <option value="Social Media">Social Media</option>
+              <option value="Email Campaign">Email Campaign</option>
+              <option value="Cold Call">Cold Call</option>
+              <option value="Event">Event</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label class="form-label" for="lead-status">Status *</label>
+            <select id="lead-status" class="form-select" required>
+              <option value="">Select status...</option>
+              <option value="new">New</option>
+              <option value="contacted">Contacted</option>
+              <option value="qualified">Qualified</option>
+              <option value="unqualified">Unqualified</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label class="form-label" for="notes">Notes</label>
+            <textarea 
+              id="notes" 
+              class="form-control" 
+              placeholder="Add any relevant notes about this lead..."
+              rows="4"
+            ></textarea>
+          </div>
+          
+          <div style="display: flex; gap: 1rem;">
+            <button type="submit" class="btn btn-primary">
+              💾 Save Lead
+            </button>
+            <a href="dashboard.html" class="btn btn-secondary">
+              Cancel
+            </a>
+          </div>
+        </form>
+      </div>
+      
+      <!-- Recent Leads -->
+      <div class="card mt-3">
+        <div class="card-header">
+          <h3 class="card-title">Recent Leads</h3>
+        </div>
+        <div class="table-container">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Source</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="leads-list">
+              <tr>
+                <td colspan="5" class="text-center">Loading...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+  </div>
+  
+  <script src="js/app.js"></script>
+  <script src="js/leads.js"></script>
+</body>
+</html>

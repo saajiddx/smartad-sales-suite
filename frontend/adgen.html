@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AdGen Pro - SmartAd Sales Suite v2.0</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="dashboard-layout">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="logo">🚀 SmartAd v2.0</div>
+      </div>
+      
+      <nav>
+        <ul class="nav-menu">
+          <li class="nav-item">
+            <a href="dashboard.html" class="nav-link">
+              📊 Dashboard
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="add-sales.html" class="nav-link">
+              💰 Add Sales
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="add-leads.html" class="nav-link">
+              👥 Add Leads
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="insights.html" class="nav-link">
+              🧠 AI Sales Insights
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="adgen.html" class="nav-link active">
+              ✨ AdGen Pro
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="analytics.html" class="nav-link">
+              📈 Analytics
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="settings.html" class="nav-link">
+              ⚙️ Settings
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link" onclick="logout()">
+              🚪 Logout
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+    
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="top-header">
+        <h1 class="page-title">✨ AdGen Pro</h1>
+      </div>
+      
+      <div id="alert-container"></div>
+      
+      <div class="card" style="max-width: 800px;">
+        <div class="card-header">
+          <h3 class="card-title">AI-Powered Ad Copy Generator</h3>
+          <p style="color: var(--text-muted); font-size: 0.875rem; margin-top: 0.5rem;">
+            Generate professional ad copy for Facebook, Instagram, and Google Ads
+          </p>
+        </div>
+        
+        <form id="adgen-form">
+          <div class="form-group">
+            <label class="form-label">Platform *</label>
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+              <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                <input type="radio" name="platform" value="facebook" checked>
+                <span>📘 Facebook Ads</span>
+              </label>
+              <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                <input type="radio" name="platform" value="instagram">
+                <span>📸 Instagram Ads</span>
+              </label>
+              <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                <input type="radio" name="platform" value="google">
+                <span>🔍 Google Ads</span>
+              </label>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label class="form-label" for="product-name">Product/Service Name *</label>
+            <input 
+              type="text" 
+              id="product-name" 
+              class="form-control" 
+              placeholder="e.g., Premium CRM Software"
+              required
+            >
+          </div>
+          
+          <div class="form-group">
+            <label class="form-label" for="description">Product Description *</label>
+            <textarea 
+              id="description" 
+              class="form-control" 
+              placeholder="Describe your product, key features, benefits, and target audience...&#10;&#10;Example: All-in-one CRM solution designed for small businesses. Features include contact management, sales pipeline tracking, email automation, and analytics. Perfect for teams of 5-50 people looking to streamline their sales process."
+              rows="6"
+              required
+            ></textarea>
+            <small style="color: var(--text-muted); font-size: 0.875rem;">
+              Include key benefits, features, and target audience for best results
+            </small>
+          </div>
+          
+          <button type="submit" class="btn btn-primary btn-lg" id="generate-ad-btn">
+            ✨ Generate Ad Copy
+          </button>
+        </form>
+        
+        <div id="ad-result" style="display: none;">
+          <div class="result-box">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+              <h3 id="platform-title">📘 Facebook Ad Copy</h3>
+              <button class="copy-button" onclick="copyAdCopy()">
+                📋 Copy to Clipboard
+              </button>
+            </div>
+            <div id="ad-content"></div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Ad Copies History -->
+      <div class="card mt-3">
+        <div class="card-header">
+          <h3 class="card-title">Recent Ad Copies</h3>
+        </div>
+        <div id="adcopies-history">
+          <p class="text-center" style="padding: 2rem; color: var(--text-muted);">
+            No ad copies generated yet. Create your first one above!
+          </p>
+        </div>
+      </div>
+    </main>
+  </div>
+  
+  <script src="js/app.js"></script>
+  <script src="js/adgen.js"></script>
+</body>
+</html>

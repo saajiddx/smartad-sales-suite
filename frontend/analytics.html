@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Analytics - SmartAd Sales Suite v2.0</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <div class="dashboard-layout">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="logo">🚀 SmartAd v2.0</div>
+      </div>
+      
+      <nav>
+        <ul class="nav-menu">
+          <li class="nav-item">
+            <a href="dashboard.html" class="nav-link">
+              📊 Dashboard
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="add-sales.html" class="nav-link">
+              💰 Add Sales
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="add-leads.html" class="nav-link">
+              👥 Add Leads
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="insights.html" class="nav-link">
+              🧠 AI Sales Insights
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="adgen.html" class="nav-link">
+              ✨ AdGen Pro
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="analytics.html" class="nav-link active">
+              📈 Analytics
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="settings.html" class="nav-link">
+              ⚙️ Settings
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link" onclick="logout()">
+              🚪 Logout
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+    
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="top-header">
+        <h1 class="page-title">📈 Analytics</h1>
+      </div>
+      
+      <!-- Charts Grid -->
+      <div class="grid grid-2">
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Sales Trend Over Time</h3>
+          </div>
+          <div class="chart-container">
+            <canvas id="sales-trend-chart"></canvas>
+          </div>
+        </div>
+        
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Revenue by Product</h3>
+          </div>
+          <div class="chart-container">
+            <canvas id="product-revenue-chart"></canvas>
+          </div>
+        </div>
+        
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Lead Sources</h3>
+          </div>
+          <div class="chart-container">
+            <canvas id="lead-sources-chart"></canvas>
+          </div>
+        </div>
+        
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Conversion Funnel</h3>
+          </div>
+          <div class="chart-container">
+            <canvas id="conversion-funnel-chart"></canvas>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  
+  <script src="js/app.js"></script>
+  <script src="js/analytics.js"></script>
+</body>
+</html>

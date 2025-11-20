@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - SmartAd Sales Suite v2.0</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <div class="dashboard-layout">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="logo">🚀 SmartAd v2.0</div>
+      </div>
+      
+      <nav>
+        <ul class="nav-menu">
+          <li class="nav-item">
+            <a href="dashboard.html" class="nav-link active">
+              📊 Dashboard
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="add-sales.html" class="nav-link">
+              💰 Add Sales
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="add-leads.html" class="nav-link">
+              👥 Add Leads
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="insights.html" class="nav-link">
+              🧠 AI Sales Insights
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="adgen.html" class="nav-link">
+              ✨ AdGen Pro
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="analytics.html" class="nav-link">
+              📈 Analytics
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="settings.html" class="nav-link">
+              ⚙️ Settings
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link" onclick="logout()">
+              🚪 Logout
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+    
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="top-header">
+        <h1 class="page-title">Dashboard</h1>
+        <div class="user-section">
+          <span id="user-name">Welcome back!</span>
+        </div>
+      </div>
+      
+      <div id="alert-container"></div>
+      
+      <!-- KPI Cards -->
+      <div class="kpi-grid">
+        <div class="kpi-card">
+          <div class="kpi-label">Total Revenue</div>
+          <div class="kpi-value" id="total-revenue">$0</div>
+          <div class="kpi-change positive">↑ All time</div>
+        </div>
+        
+        <div class="kpi-card">
+          <div class="kpi-label">Total Sales</div>
+          <div class="kpi-value" id="total-sales">0</div>
+          <div class="kpi-change positive">↑ All transactions</div>
+        </div>
+        
+        <div class="kpi-card">
+          <div class="kpi-label">Active Leads</div>
+          <div class="kpi-value" id="active-leads">0</div>
+          <div class="kpi-change positive">↑ Current pipeline</div>
+        </div>
+        
+        <div class="kpi-card">
+          <div class="kpi-label">Monthly Revenue</div>
+          <div class="kpi-value" id="monthly-revenue">$0</div>
+          <div class="kpi-change positive">↑ This month</div>
+        </div>
+      </div>
+      
+      <!-- Charts -->
+      <div class="grid grid-2">
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Sales Trend</h3>
+          </div>
+          <div class="chart-container">
+            <canvas id="sales-chart"></canvas>
+          </div>
+        </div>
+        
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Revenue by Product</h3>
+          </div>
+          <div class="chart-container">
+            <canvas id="product-chart"></canvas>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Recent Sales Table -->
+      <div class="card mt-3">
+        <div class="card-header">
+          <h3 class="card-title">Recent Sales</h3>
+        </div>
+        <div class="table-container">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Customer</th>
+                <th>Product</th>
+                <th>Amount</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="recent-sales">
+              <tr>
+                <td colspan="5" class="text-center">Loading...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      
+      <!-- Recent Leads Table -->
+      <div class="card mt-3">
+        <div class="card-header">
+          <h3 class="card-title">Recent Leads</h3>
+        </div>
+        <div class="table-container">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Source</th>
+                <th>Status</th>
+                <th>Date</th>
+              </tr>
+            </thead>
+            <tbody id="recent-leads">
+              <tr>
+                <td colspan="5" class="text-center">Loading...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+  </div>
+  
+  <script src="js/app.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

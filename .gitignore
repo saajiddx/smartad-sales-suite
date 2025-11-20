@@ -1,0 +1,20 @@
+# Dependencies
+node_modules/
+
+# Environment variables (NEVER commit these!)
+.env
+backend/.env
+
+# Database (contains user data)
+backend/data/database.json
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS files
+.DS_Store
+.vscode/
+
+# Temporary files
+*.tmp

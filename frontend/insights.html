@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Sales Insights - SmartAd Sales Suite v2.0</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="dashboard-layout">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="logo">🚀 SmartAd v2.0</div>
+      </div>
+      
+      <nav>
+        <ul class="nav-menu">
+          <li class="nav-item">
+            <a href="dashboard.html" class="nav-link">
+              📊 Dashboard
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="add-sales.html" class="nav-link">
+              💰 Add Sales
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="add-leads.html" class="nav-link">
+              👥 Add Leads
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="insights.html" class="nav-link active">
+              🧠 AI Sales Insights
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="adgen.html" class="nav-link">
+              ✨ AdGen Pro
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="analytics.html" class="nav-link">
+              📈 Analytics
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="settings.html" class="nav-link">
+              ⚙️ Settings
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link" onclick="logout()">
+              🚪 Logout
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+    
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="top-header">
+        <h1 class="page-title">🧠 AI Sales Insights</h1>
+      </div>
+      
+      <div id="alert-container"></div>
+      
+      <div class="card" style="max-width: 800px;">
+        <div class="card-header">
+          <h3 class="card-title">Ask AI for Business Advice</h3>
+          <p style="color: var(--text-muted); font-size: 0.875rem; margin-top: 0.5rem;">
+            Get expert sales strategy and business insights powered by AI
+          </p>
+        </div>
+        
+        <form id="insights-form">
+          <div class="form-group">
+            <label class="form-label" for="question">What would you like advice on? *</label>
+            <textarea 
+              id="question" 
+              class="form-control" 
+              placeholder="e.g., How can I improve my Q4 sales performance?&#10;What strategies should I use to convert more leads?&#10;How can I increase average deal size?"
+              rows="5"
+              required
+            ></textarea>
+            <small style="color: var(--text-muted); font-size: 0.875rem;">
+              Be specific for better insights. The AI will analyze your current sales data to provide personalized recommendations.
+            </small>
+          </div>
+          
+          <button type="submit" class="btn btn-primary btn-lg" id="generate-btn">
+            ✨ Generate Insight
+          </button>
+        </form>
+        
+        <div id="insight-result" style="display: none;">
+          <div class="result-box">
+            <h3>💡 AI Insight</h3>
+            <div id="insight-content"></div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Insights History -->
+      <div class="card mt-3">
+        <div class="card-header">
+          <h3 class="card-title">Recent Insights</h3>
+        </div>
+        <div id="insights-history">
+          <p class="text-center" style="padding: 2rem; color: var(--text-muted);">
+            No insights generated yet. Ask your first question above!
+          </p>
+        </div>
+      </div>
+    </main>
+  </div>
+  
+  <script src="js/app.js"></script>
+  <script src="js/insights.js"></script>
+</body>
+</html>
