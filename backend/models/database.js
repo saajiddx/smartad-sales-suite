@@ -4,10 +4,19 @@ const path = require('path');
 const dbPath = path.join(__dirname, '../data/database.json');
 
 // Initialize database
+// Initialize database if corrupted or missing
 const initDB = () => {
   try {
+    // Create data folder if it doesn't exist
+    const dataDir = path.dirname(dbPath);
+    if (!fs.existsSync(dataDir)) {
+      fs.mkdirSync(dataDir, { recursive: true });
+      console.log('Created data directory');
+    }
+    
+    // Check if database file exists and is valid
     const data = fs.readFileSync(dbPath, 'utf8');
-    JSON.parse(data);
+    JSON.parse(data); // Test if valid JSON
   } catch (error) {
     console.log('Initializing fresh database...');
     const initialData = {
@@ -17,6 +26,13 @@ const initDB = () => {
       insights: [],
       adCopies: []
     };
+    
+    // Create data folder if it doesn't exist
+    const dataDir = path.dirname(dbPath);
+    if (!fs.existsSync(dataDir)) {
+      fs.mkdirSync(dataDir, { recursive: true });
+    }
+    
     fs.writeFileSync(dbPath, JSON.stringify(initialData, null, 2));
   }
 };
