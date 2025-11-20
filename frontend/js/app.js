@@ -1,5 +1,5 @@
 // API Base URL
-const API_BASE = 'http://localhost:3000/api';
+const API_BASE = 'https://smartad-sales-suite.onrender.com/api';
 
 // Check if user is authenticated
 function isAuthenticated() {
