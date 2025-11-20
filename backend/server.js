@@ -50,8 +50,8 @@ app.get('*', (req, res) => {
 app.listen(PORT, () => {
   console.log(`
   ╔═══════════════════════════════════════════════╗
-  ║   🚀 SmartAd Sales Suite v2.0                ║
-  ║      Professional Edition                     ║
+  ║   🚀 SmartAd Sales Suite                     ║
+  ║      Smart Sales & Marketing Automation      ║
   ║                                               ║
   ║   📍 URL: http://localhost:${PORT}            ║
   ║   🔧 Environment: ${process.env.NODE_ENV || 'development'}              ║
