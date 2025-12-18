@@ -1,7 +1,7 @@
 {
-  "name": "smartad-sales-suite-v2",
+  "name": "smartad-sales-suite",
   "version": "2.0.0",
-  "description": "SmartAd Sales Suite - Professional Edition",
+  "description": "Track and Grow your sale",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",

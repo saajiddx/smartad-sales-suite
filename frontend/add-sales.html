@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Add Sales - SmartAd Sales Suite v2.0</title>
+  <title>বিক্রয় যোগ করুন - SmartAd Sales Suite</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -11,7 +11,7 @@
     <!-- Sidebar -->
     <aside class="sidebar">
       <div class="sidebar-header">
-        <div class="logo">🚀 SmartAd v2.0</div>
+        <div class="logo">🚀 SmartAd</div>
       </div>
       
       <nav>
@@ -23,7 +23,7 @@
           </li>
           <li class="nav-item">
             <a href="add-sales.html" class="nav-link active">
-              💰 Add Sales
+              💰 বিক্রয় যোগ করুন
             </a>
           </li>
           <li class="nav-item">
@@ -63,43 +63,216 @@
     <!-- Main Content -->
     <main class="main-content">
       <div class="top-header">
-        <h1 class="page-title">Add New Sale</h1>
+        <h1 class="page-title">নতুন বিক্রয় যোগ করুন</h1>
       </div>
       
       <div id="alert-container"></div>
       
-      <div class="card" style="max-width: 600px;">
+      <div class="card" style="max-width: 800px;">
         <div class="card-header">
-          <h3 class="card-title">Sales Information</h3>
+          <h3 class="card-title">বিক্রয় এবং ক্রেতার তথ্য</h3>
         </div>
         
         <form id="sales-form">
+          <!-- Product Selection -->
           <div class="form-group">
-            <label class="form-label" for="product">Product Name *</label>
-            <input 
-              type="text" 
-              id="product" 
-              class="form-control" 
-              placeholder="e.g., Premium Package"
-              required
-            >
+            <label class="form-label" for="product">পণ্যের নাম *</label>
+            <select id="product" class="form-select" required>
+              <option value="">পণ্য নির্বাচন করুন...</option>
+              
+              <optgroup label="চাল ও ডাল">
+                <option value="মিনিকেট চাল">মিনিকেট চাল</option>
+                <option value="নাজিরশাইল চাল">নাজিরশাইল চাল</option>
+                <option value="পোলাও চাল">পোলাও চাল</option>
+                <option value="বাসমতী চাল">বাসমতী চাল</option>
+                <option value="আতপ চাল">আতপ চাল</option>
+                <option value="মসুর ডাল">মসুর ডাল</option>
+                <option value="মুগ ডাল">মুগ ডাল</option>
+                <option value="ছোলার ডাল">ছোলার ডাল</option>
+                <option value="মাসকলাই ডাল">মাসকলাই ডাল</option>
+                <option value="অড়হর ডাল">অড়হর ডাল</option>
+              </optgroup>
+              
+              <optgroup label="তেল ও ঘি">
+                <option value="সয়াবিন তেল">সয়াবিন তেল</option>
+                <option value="সরিষার তেল">সরিষার তেল</option>
+                <option value="পাম তেল">পাম তেল</option>
+                <option value="সানফ্লাওয়ার তেল">সানফ্লাওয়ার তেল</option>
+                <option value="ঘি">ঘি</option>
+                <option value="ডালডা">ডালডা</option>
+              </optgroup>
+              
+              <optgroup label="মসলা">
+                <option value="হলুদ গুঁড়া">হলুদ গুঁড়া</option>
+                <option value="মরিচ গুঁড়া">মরিচ গুঁড়া</option>
+                <option value="ধনিয়া গুঁড়া">ধনিয়া গুঁড়া</option>
+                <option value="জিরা গুঁড়া">জিরা গুঁড়া</option>
+                <option value="গরম মসলা">গরম মসলা</option>
+                <option value="রসুনের গুঁড়া">রসুনের গুঁড়া</option>
+                <option value="আদা বাটা">আদা বাটা</option>
+                <option value="পেঁয়াজ গুঁড়া">পেঁয়াজ গুঁড়া</option>
+                <option value="এলাচ">এলাচ</option>
+                <option value="দারুচিনি">দারুচিনি</option>
+                <option value="লবঙ্গ">লবঙ্গ</option>
+                <option value="জায়ফল">জায়ফল</option>
+                <option value="তেজপাতা">তেজপাতা</option>
+              </optgroup>
+              
+              <optgroup label="লবণ ও চিনি">
+                <option value="লবণ">লবণ</option>
+                <option value="চিনি">চিনি</option>
+                <option value="গুড়">গুড়</option>
+                <option value="মিছরি">মিছরি</option>
+                <option value="খেজুরের গুড়">খেজুরের গুড়</option>
+              </optgroup>
+              
+              <optgroup label="বিস্কুট ও কেক">
+                <option value="লেক্সাস বিস্কুট">লেক্সাস বিস্কুট</option>
+                <option value="টাইগার বিস্কুট">টাইগার বিস্কুট</option>
+                <option value="অরেঞ্জ বিস্কুট">অরেঞ্জ বিস্কুট</option>
+                <option value="ডানিশ বিস্কুট">ডানিশ বিস্কুট</option>
+                <option value="মিল্ক বিস্কুট">মিল্ক বিস্কুট</option>
+                <option value="ক্র্যাকার বিস্কুট">ক্র্যাকার বিস্কুট</option>
+                <option value="কেক">কেক</option>
+              </optgroup>
+              
+              <optgroup label="নাস্তা ও স্ন্যাক্স">
+                <option value="চানাচুর">চানাচুর</option>
+                <option value="মুড়ি">মুড়ি</option>
+                <option value="চিপস">চিপস</option>
+                <option value="নুডলস">নুডলস</option>
+                <option value="সেমাই">সেমাই</option>
+                <option value="সুজি">সুজি</option>
+              </optgroup>
+              
+              <optgroup label="পানীয়">
+                <option value="কোকা-কোলা">কোকা-কোলা</option>
+                <option value="পেপসি">পেপসি</option>
+                <option value="স্প্রাইট">স্প্রাইট</option>
+                <option value="ফান্টা">ফান্টা</option>
+                <option value="মাউন্টেন ডিউ">মাউন্টেন ডিউ</option>
+                <option value="মিরিন্ডা">মিরিন্ডা</option>
+                <option value="বোতল পানি">বোতল পানি</option>
+                <option value="ফ্রুটিকা">ফ্রুটিকা</option>
+                <option value="প্রাণ জুস">প্রাণ জুস</option>
+              </optgroup>
+              
+              <optgroup label="দুধ ও দুগ্ধজাত">
+                <option value="তরল দুধ">তরল দুধ</option>
+                <option value="গুঁড়া দুধ">গুঁড়া দুধ</option>
+                <option value="দই">দই</option>
+                <option value="ডিম">ডিম</option>
+                <option value="মাখন">মাখন</option>
+                <option value="পনির">পনির</option>
+              </optgroup>
+              
+              <optgroup label="আটা ও ময়দা">
+                <option value="আটা">আটা</option>
+                <option value="ময়দা">ময়দা</option>
+                <option value="বেসন">বেসন</option>
+                <option value="চালের গুঁড়া">চালের গুঁড়া</option>
+              </optgroup>
+              
+              <optgroup label="সাবান ও ডিটারজেন্ট">
+                <option value="লাক্স সাবান">লাক্স সাবান</option>
+                <option value="ডেটল সাবান">ডেটল সাবান</option>
+                <option value="লাইফবয় সাবান">লাইফবয় সাবান</option>
+                <option value="টাইড ডিটারজেন্ট">টাইড ডিটারজেন্ট</option>
+                <option value="হুইল ডিটারজেন্ট">হুইল ডিটারজেন্ট</option>
+                <option value="সার্ফ এক্সেল">সার্ফ এক্সেল</option>
+                <option value="ভিম বার">ভিম বার</option>
+              </optgroup>
+              
+              <optgroup label="শ্যাম্পু ও সাবান">
+                <option value="সানসিল্ক শ্যাম্পু">সানসিল্ক শ্যাম্পু</option>
+                <option value="ক্লিয়ার শ্যাম্পু">ক্লিয়ার শ্যাম্পু</option>
+                <option value="হেড এন্ড শোল্ডার">হেড এন্ড শোল্ডার</option>
+                <option value="পন্ডস ক্রিম">পন্ডস ক্রিম</option>
+                <option value="ফেয়ার এন্ড লাভলি">ফেয়ার এন্ড লাভলি</option>
+              </optgroup>
+              
+              <optgroup label="টয়লেট্রিজ">
+                <option value="টিস্যু পেপার">টিস্যু পেপার</option>
+                <option value="টুথপেস্ট">টুথপেস্ট</option>
+                <option value="টুথব্রাশ">টুথব্রাশ</option>
+                <option value="সাবান">সাবান</option>
+              </optgroup>
+              
+              <optgroup label="চা ও কফি">
+                <option value="ব্রুক বন্ড চা">ব্রুক বন্ড চা</option>
+                <option value="তাজা চা">তাজা চা</option>
+                <option value="লিপটন চা">লিপটন চা</option>
+                <option value="নেসকাফে কফি">নেসকাফে কফি</option>
+              </optgroup>
+              
+              <optgroup label="মুড়ি ও চিড়া">
+                <option value="মুড়ি">মুড়ি</option>
+                <option value="চিড়া">চিড়া</option>
+                <option value="খই">খই</option>
+              </optgroup>
+              
+              <optgroup label="সস ও সিজনিং">
+                <option value="টমেটো সস">টমেটো সস</option>
+                <option value="চিলি সস">চিলি সস</option>
+                <option value="সয়া সস">সয়া সস</option>
+                <option value="ভিনেগার">ভিনেগার</option>
+                <option value="মেয়োনিজ">মেয়োনিজ</option>
+              </optgroup>
+              
+              <optgroup label="মাছ ও মাংস (প্রসেসড)">
+                <option value="শুটকি মাছ">শুটকি মাছ</option>
+                <option value="চিংড়ি শুকনা">চিংড়ি শুকনা</option>
+                <option value="হাঁসের ডিম">হাঁসের ডিম</option>
+              </optgroup>
+              
+              <optgroup label="ফল ও সবজি (শুকনা)">
+                <option value="কিশমিশ">কিশমিশ</option>
+                <option value="খেজুর">খেজুর</option>
+                <option value="বাদাম">বাদাম</option>
+                <option value="কাজুবাদাম">কাজুবাদাম</option>
+                <option value="পেস্তা">পেস্তা</option>
+              </optgroup>
+              
+              <optgroup label="মিষ্টি ও চকলেট">
+                <option value="রসগোল্লা">রসগোল্লা</option>
+                <option value="চমচম">চমচম</option>
+                <option value="ডেইরি মিল্ক">ডেইরি মিল্ক</option>
+                <option value="কিটক্যাট">কিটক্যাট</option>
+                <option value="স্নিকার্স">স্নিকার্স</option>
+              </optgroup>
+              
+              <optgroup label="অন্যান্য">
+                <option value="মধু">মধু</option>
+                <option value="জ্যাম">জ্যাম</option>
+                <option value="জেলি">জেলি</option>
+                <option value="পিনাট বাটার">পিনাট বাটার</option>
+                <option value="কর্নফ্লেক্স">কর্নফ্লেক্স</option>
+                <option value="ওটস">ওটস</option>
+                <option value="ম্যাগি">ম্যাগি</option>
+                <option value="হরলিক্স">হরলিক্স</option>
+                <option value="বুস্ট">বুস্ট</option>
+                <option value="মালটোভা">মালটোভা</option>
+              </optgroup>
+            </select>
           </div>
           
+          <!-- Amount -->
           <div class="form-group">
-            <label class="form-label" for="amount">Amount (USD) *</label>
+            <label class="form-label" for="amount">মূল্য (৳ টাকা) *</label>
             <input 
               type="number" 
               id="amount" 
               class="form-control" 
-              placeholder="e.g., 1500"
+              placeholder="যেমন: ৫০০"
               step="0.01"
               min="0"
               required
             >
           </div>
           
+          <!-- Date -->
           <div class="form-group">
-            <label class="form-label" for="date">Sale Date *</label>
+            <label class="form-label" for="date">তারিখ *</label>
             <input 
               type="date" 
               id="date" 
@@ -108,33 +281,59 @@
             >
           </div>
           
-          <div class="form-group">
-            <label class="form-label" for="customer">Customer Name *</label>
-            <input 
-              type="text" 
-              id="customer" 
-              class="form-control" 
-              placeholder="e.g., John Doe"
-              required
-            >
+          <!-- Customer Details Section -->
+          <div style="border-top: 1px solid var(--border); margin: 2rem 0; padding-top: 2rem;">
+            <h4 style="margin-bottom: 1rem; color: var(--primary-light);">ক্রেতার তথ্য</h4>
+            
+            <div class="form-group">
+              <label class="form-label" for="customer">ক্রেতার নাম *</label>
+              <input 
+                type="text" 
+                id="customer" 
+                class="form-control" 
+                placeholder="যেমন: মোঃ করিম"
+                required
+              >
+            </div>
+            
+            <div class="form-group">
+              <label class="form-label" for="customer-phone">ফোন নম্বর</label>
+              <input 
+                type="tel" 
+                id="customer-phone" 
+                class="form-control" 
+                placeholder="যেমন: ০১৭১২৩৪৫৬৭৮"
+              >
+            </div>
+            
+            <div class="form-group">
+              <label class="form-label" for="customer-address">ঠিকানা</label>
+              <textarea 
+                id="customer-address" 
+                class="form-control" 
+                placeholder="যেমন: ঢাকা, বাংলাদেশ"
+                rows="2"
+              ></textarea>
+            </div>
           </div>
           
+          <!-- Status -->
           <div class="form-group">
-            <label class="form-label" for="status">Status *</label>
+            <label class="form-label" for="status">অবস্থা *</label>
             <select id="status" class="form-select" required>
-              <option value="">Select status...</option>
-              <option value="pending">Pending</option>
-              <option value="completed">Completed</option>
-              <option value="cancelled">Cancelled</option>
+              <option value="">অবস্থা নির্বাচন করুন...</option>
+              <option value="pending">বাকি</option>
+              <option value="completed">সম্পন্ন</option>
+              <option value="cancelled">বাতিল</option>
             </select>
           </div>
           
           <div style="display: flex; gap: 1rem;">
             <button type="submit" class="btn btn-primary">
-              💾 Save Sale
+              💾 বিক্রয় সংরক্ষণ করুন
             </button>
             <a href="dashboard.html" class="btn btn-secondary">
-              Cancel
+              বাতিল
             </a>
           </div>
         </form>
@@ -143,28 +342,42 @@
       <!-- Recent Sales -->
       <div class="card mt-3">
         <div class="card-header">
-          <h3 class="card-title">Recent Sales</h3>
+          <h3 class="card-title">সাম্প্রতিক বিক্রয়</h3>
         </div>
         <div class="table-container">
           <table class="table">
             <thead>
               <tr>
-                <th>Date</th>
-                <th>Customer</th>
-                <th>Product</th>
-                <th>Amount</th>
-                <th>Status</th>
+                <th>তারিখ</th>
+                <th>ক্রেতা</th>
+                <th>পণ্য</th>
+                <th>মূল্য</th>
+                <th>অবস্থা</th>
+                <th>বিস্তারিত</th>
               </tr>
             </thead>
             <tbody id="sales-list">
               <tr>
-                <td colspan="5" class="text-center">Loading...</td>
+                <td colspan="6" class="text-center">লোড হচ্ছে...</td>
               </tr>
             </tbody>
           </table>
         </div>
       </div>
     </main>
+  </div>
+  
+  <!-- Customer Details Modal -->
+  <div id="customer-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); z-index: 9999; align-items: center; justify-content: center;">
+    <div style="background: var(--bg-secondary); padding: 2rem; border-radius: 1rem; max-width: 500px; width: 90%;">
+      <h3 style="margin-bottom: 1.5rem; color: var(--primary-light);">ক্রেতার বিস্তারিত তথ্য</h3>
+      <div id="customer-details-content">
+        <!-- Details will be loaded here -->
+      </div>
+      <button onclick="closeCustomerModal()" class="btn btn-primary" style="margin-top: 1.5rem; width: 100%;">
+        বন্ধ করুন
+      </button>
+    </div>
   </div>
   
   <script src="js/app.js"></script>

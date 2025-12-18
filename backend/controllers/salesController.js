@@ -1,4 +1,4 @@
-const { getAllSales, createSale, getSalesStats } = require('../models/database');
+const { getAllSales, createSale, getSalesStats, getSaleById } = require('../models/database');
 
 // @desc    Get all sales
 // @route   GET /api/sales
@@ -12,12 +12,12 @@ const getSales = async (req, res, next) => {
   }
 };
 
-// @desc    Create new sale
+// @desc    Create new sale with customer details
 // @route   POST /api/sales
 // @access  Private
 const addSale = async (req, res, next) => {
   try {
-    const { product, amount, date, customer, status } = req.body;
+    const { product, amount, date, customer, customerPhone, customerAddress, status } = req.body;
     
     if (!product || !amount || !date || !customer) {
       return res.status(400).json({ error: 'Missing required fields' });
@@ -28,6 +28,8 @@ const addSale = async (req, res, next) => {
       amount: parseFloat(amount),
       date,
       customer,
+      customerPhone: customerPhone || '',
+      customerAddress: customerAddress || '',
       status: status || 'pending'
     });
     
@@ -49,8 +51,26 @@ const getStats = async (req, res, next) => {
   }
 };
 
+// @desc    Get single sale details
+// @route   GET /api/sales/:id
+// @access  Private
+const getSaleDetails = async (req, res, next) => {
+  try {
+    const sale = getSaleById(parseInt(req.params.id));
+    
+    if (!sale) {
+      return res.status(404).json({ error: 'Sale not found' });
+    }
+    
+    res.json({ success: true, sale });
+  } catch (error) {
+    next(error);
+  }
+};
+
 module.exports = {
   getSales,
   addSale,
-  getStats
+  getStats,
+  getSaleDetails
 };

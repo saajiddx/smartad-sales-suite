@@ -250,7 +250,11 @@ const getConversionFunnel = () => {
     { stage: 'Converted', count: db.sales.filter(s => s.status === 'completed').length }
   ];
 };
-
+// Get single sale by ID
+const getSaleById = (id) => {
+  const db = readDB();
+  return db.sales.find(s => s.id === id);
+};
 // EXPORT ALL FUNCTIONS
 module.exports = {
   readDB,
@@ -261,6 +265,7 @@ module.exports = {
   getAllSales,
   createSale,
   getSalesStats,
+  getSaleById,
   getAllLeads,
   createLead,
   getLeadsStats,

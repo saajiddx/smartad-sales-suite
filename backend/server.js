@@ -33,7 +33,7 @@ app.use('/api/analytics', analyticsRoutes);
 app.get('/api/health', (req, res) => {
   res.json({ 
     status: 'ok', 
-    message: 'SmartAd Sales Suite v2.0 API is running',
+    message: 'SmartAd Sales Suite API is running',
     version: '2.0.0',
     auth: 'JWT (Professional)'
   });

@@ -45,14 +45,13 @@ function showAlert(message, type = 'success') {
   }, 5000);
 }
 
-// Format currency
+// Format currency in BDT (Bangladeshi Taka)
 function formatCurrency(amount) {
-  return new Intl.NumberFormat('en-US', {
-    style: 'currency',
-    currency: 'USD'
-  }).format(amount);
+  return '৳' + amount.toLocaleString('bn-BD', {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2
+  });
 }
-
 // Format date
 function formatDate(dateString) {
   return new Date(dateString).toLocaleDateString('en-US', {
